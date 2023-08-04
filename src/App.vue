@@ -1,7 +1,9 @@
 <script setup>
 import FormProduct from './components/FormProduct.vue';
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import ParentB from './components/ParentB.vue';
+import ExposeSlot from './components/ExposeSlot.vue';
+import Button from './components/Button.vue';
 
 
 
@@ -11,27 +13,34 @@ const state = reactive({
 function onCreateProduct(data){
   state.products.push(data);
 }
+const exposeRef = ref()
+function useExpose(){
+  exposeRef.value.incrementCount()
+  exposeRef.value.count = exposeRef.value.count +2;
+}
 </script>
 
 <template>
   <!-- Header -->
   <header>
     <h1>Simeple Vue App</h1>
-    <!-- <nav>
+    <nav>
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">Products</a></li>
         <li><a href="#">Cart</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
-    </nav> -->
+    </nav>
   </header>
 
   <!-- Main Content -->
   <main>
     
-    <FormProduct @onSuccess="onCreateProduct" />
-    <ParentB :products="state.products" />
+    <!-- <FormProduct @onSuccess="onCreateProduct" />
+    <ParentB :products="state.products" /> -->
+    <ExposeSlot ref="exposeRef" />
+    <Button @click="useExpose" >incred by parent</Button>
   </main>
 
   <!-- Footer -->

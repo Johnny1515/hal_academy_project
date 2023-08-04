@@ -26,6 +26,7 @@ function onAddToCart(id_product){
         }
     }
 }
+
 </script>
 <template>
     <div>
@@ -35,8 +36,8 @@ function onAddToCart(id_product){
             <div class="grid">
                 <CardProduct v-for="(product ,index) in props.products" 
                 :key="index"
-                :title="product.title" 
-                :id="product.id" 
+                :title="product.title"
+                :id="product.id"
                 @addToCart="onAddToCart"
                 />
             </div>
