@@ -12,9 +12,11 @@ defineExpose({ count, incrementCount });
 </script>
 
 <template>
-    <div>
+    <div style="border: red solid 1px ; padding:12px;">
+       
         <p>Count in Child: {{ count }}</p>
         <Button type="danger-button" @click="incrementCount" >incred by Child</Button>
+        <hr>
     </div>
 </template>
   

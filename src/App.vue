@@ -39,7 +39,11 @@ function useExpose(){
     
     <!-- <FormProduct @onSuccess="onCreateProduct" />
     <ParentB :products="state.products" /> -->
-    <ExposeSlot ref="exposeRef" />
+    <ExposeSlot ref="exposeRef" >
+      <template #icon>
+        My Icon
+      </template>
+    </ExposeSlot>
     <Button @click="useExpose" >incred by parent</Button>
   </main>
 

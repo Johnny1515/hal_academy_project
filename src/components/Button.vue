@@ -10,7 +10,8 @@ const props  = defineProps({
 </script>
 <template>
     <button :class="`${props.type}`">
-        <slot ></slot>
+        <slot name="icon" ></slot>  <!-- Icon Here --> 
+        <slot ></slot>  <!-- default Slot -->
     </button>
 </template>
 
